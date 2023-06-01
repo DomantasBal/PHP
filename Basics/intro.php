@@ -92,6 +92,15 @@
     foreach ($numbers as $number) {
         echo $number . "<br>";
     }
+    ?>
+
+    <!-- CONSTANTS -->
+    <h2>Constants</h2>
+
+    <?php
+
+    define("NAME", 1000);
+    echo NAME;
 
     ?>
 
