@@ -1,13 +1,31 @@
 <?php
-
 if (isset($_POST["submit"])) {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $mockDatabase = array(
+        $username = $_POST["username"],
+        $password = $_POST["password"]
+    );
 
-    echo $username;
-    echo $password;
+    foreach ($mockDatabase as $data) {
+        validateLength($data);
+    }
 }
+
+function validateLength($userInput)
+{
+    if (strlen($userInput) < 3) {
+        "username or pass has to be more than 3 letters";
+    }
+}
+
+function loginCheck($mockDatabase)
+{
+    if ($mockDatabase[0] == "Dom" && $mockDatabase[1] == "pass123") {
+        echo "Congrats this is the worst login form ever!";
+    }
+}
+
+loginCheck($mockDatabase);
 
 ?>
 
