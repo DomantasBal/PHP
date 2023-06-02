@@ -3,7 +3,7 @@ if (isset($_POST["submit"])) {
 
     // COLLECTING FORM VALUES
     $username = $_POST["username"];
-    $pass = $_POST["password"];
+    $password = $_POST["password"];
 
     // MAKING CONNECTION WITH MYSQL
     $connection = mysqli_connect("localhost", "root", "", "loginapp");
@@ -13,6 +13,17 @@ if (isset($_POST["submit"])) {
         echo "connected";
     } else {
         die("DB connection failed..");
+    }
+
+    // QUERIES
+    $query = "INSERT INTO users(username,password)";
+    $query .= "VALUES ('$username', '$password')";
+
+    // SENDING QUERY TO MYSQL
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die("Query failed");
     }
 }
 ?>
