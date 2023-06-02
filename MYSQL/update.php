@@ -1,12 +1,9 @@
 <?php include "db.php";
-$query = "SELECT * FROM users";
-$response = mysqli_query($connection, $query);
-
-// print_r($response);
+include "functions.php";
 ?>
 
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -34,11 +31,7 @@ $response = mysqli_query($connection, $query);
 
                     <select name="id" id="">
                         <?php
-                        while ($row = mysqli_fetch_assoc($response)) {
-                            $id = $row["id"];
-
-                            echo "<option value='$id'>$id</option>";
-                        }
+                        showAllData();
                         ?>
 
 

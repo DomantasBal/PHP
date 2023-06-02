@@ -1,10 +1,8 @@
 <?php include "db.php";
+include "functions.php";
 
 
-$query = "SELECT * FROM users";
-$response = mysqli_query($connection, $query);
 
-// print_r($response);
 
 ?>
 
