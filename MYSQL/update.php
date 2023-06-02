@@ -1,34 +1,12 @@
-<?php
-if (isset($_POST["submit"])) {
+<?php include "db.php";
+$query = "SELECT * FROM users";
+$response = mysqli_query($connection, $query);
 
-    // COLLECTING FORM VALUES
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // MAKING CONNECTION WITH MYSQL
-    $connection = mysqli_connect("localhost", "root", "", "loginapp");
-
-    // CONNECTION RESPONSE IF CONNECTED
-    if ($connection) {
-        echo "connected";
-    } else {
-        die("DB connection failed..");
-    }
-
-    // QUERIES
-    $query = "INSERT INTO users(username,password)";
-    $query .= "VALUES ('$username', '$password')";
-
-    // SENDING QUERY TO MYSQL
-    $result = mysqli_query($connection, $query);
-
-    if (!$result) {
-        die("Query failed");
-    }
-}
+// print_r($response);
 ?>
 
-<!DOCTYPE html>
+
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -52,8 +30,25 @@ if (isset($_POST["submit"])) {
                     <input name="password" type="password" class="form-control">
                 </div>
 
+                <div class="form-group">
+
+                    <select name="id" id="">
+                        <?php
+                        while ($row = mysqli_fetch_assoc($response)) {
+                            $id = $row["id"];
+
+                            echo "<option value='$id'>$id</option>";
+                        }
+                        ?>
+
+
+
+                    </select>
+
+                </div>
+
                 <br>
-                <button class="btn btn-primary" name="submit" type="submit">Submit</button>
+                <button class="btn btn-primary" name="submit" type="submit">Update</button>
             </form>
         </div>
     </div>
