@@ -1,12 +1,12 @@
-<?php include "db.php";
+<?php include "./db.php";
 include "functions.php";
 
 if (isset($_POST["submit"])) {
-    updateData();
+    deleteUser();
 }
-
-
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
 <body>
     <div class="container">
         <div class="col-xs-6">
-            <form action="" method="post">
+            <form action="delete.php" method="post">
                 <div class="form-group">
                     <label for="username">user</label>
                     <input name="username" type="text" class="form-control">
@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
                 </div>
 
                 <br>
-                <button class="btn btn-primary" name="submit" type="submit">Update</button>
+                <button class="btn btn-primary" name="submit" type="submit">Delete</button>
             </form>
         </div>
     </div>
